@@ -1,0 +1,175 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&display=swap');
+@import 'tailwindcss';
+
+@theme {
+  --font-sans: 'Inter', ui-sans-serif, system-ui, sans-serif;
+  --font-mono: 'JetBrains Mono', ui-monospace, monospace;
+
+  --color-brand-navy: #0D2B52;
+  --color-brand-navy-light: #163D6E;
+  --color-brand-blue: #2B6BE8;
+  --color-brand-teal: #00BFA5;
+
+  --color-ai-purple: #7C3AED;
+  --color-ai-purple-light: #EDE9FE;
+
+  --color-success: #10B981;
+  --color-success-light: #D1FAE5;
+
+  --color-warning: #F59E0B;
+  --color-warning-light: #FEF3C7;
+
+  --color-danger: #EF4444;
+  --color-danger-light: #FEE2E2;
+
+  --color-surface: #F8F9FB;
+  --color-card: #FFFFFF;
+  --color-border: #E4E7EC;
+  --color-border-light: #F2F4F7;
+
+  --color-text-primary: #0F1629;
+  --color-text-secondary: #4B5563;
+  --color-text-muted: #9CA3AF;
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+html, body, #root {
+  height: 100%;
+  font-family: var(--font-sans);
+  background-color: var(--color-surface);
+  color: var(--color-text-primary);
+  -webkit-font-smoothing: antialiased;
+}
+
+::-webkit-scrollbar { width: 6px; height: 6px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: #D1D5DB; border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: #9CA3AF; }
+
+.font-tabular { font-variant-numeric: tabular-nums; font-family: var(--font-mono); }
+
+.sidebar-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 12px;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 500;
+  color: #94A3B8;
+  cursor: pointer;
+  transition: all 0.15s ease;
+  text-decoration: none;
+  white-space: nowrap;
+}
+.sidebar-item:hover {
+  background: rgba(255,255,255,0.07);
+  color: #CBD5E1;
+}
+.sidebar-item.active {
+  background: rgba(43, 107, 232, 0.2);
+  color: #FFFFFF;
+}
+.sidebar-item.active svg {
+  color: #60A5FA;
+}
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 2px 8px;
+  border-radius: 9999px;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+}
+
+.card {
+  background: var(--color-card);
+  border: 1px solid var(--color-border);
+  border-radius: 12px;
+  padding: 20px;
+}
+
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: var(--color-brand-navy);
+  color: white;
+  padding: 8px 16px;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  border: none;
+  transition: background 0.15s;
+}
+.btn-primary:hover { background: var(--color-brand-navy-light); }
+
+.btn-secondary {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: white;
+  color: var(--color-text-primary);
+  padding: 8px 16px;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  border: 1px solid var(--color-border);
+  transition: all 0.15s;
+}
+.btn-secondary:hover { background: var(--color-surface); }
+
+.table-row:hover { background: var(--color-surface); }
+
+.stat-card {
+  background: white;
+  border: 1px solid var(--color-border);
+  border-radius: 12px;
+  padding: 20px;
+  position: relative;
+  overflow: hidden;
+}
+
+.skeleton {
+  background: linear-gradient(90deg, #F3F4F6 25%, #E9EBF0 50%, #F3F4F6 75%);
+  background-size: 200% 100%;
+  animation: shimmer 1.5s infinite;
+  border-radius: 6px;
+}
+@keyframes shimmer {
+  0% { background-position: 200% 0; }
+  100% { background-position: -200% 0; }
+}
+
+.risk-bar {
+  height: 6px;
+  border-radius: 3px;
+  background: #E4E7EC;
+  overflow: hidden;
+}
+
+/* Mobile-only: add bottom padding to page content so bottom nav doesn't cover content */
+@media (max-width: 767px) {
+  main > div {
+    padding-bottom: 80px;
+  }
+  .card {
+    border-radius: 10px;
+    padding: 16px;
+  }
+}
+
+/* Mobile: improve table readability */
+@media (max-width: 767px) {
+  .stat-card {
+    padding: 14px;
+  }
+}
